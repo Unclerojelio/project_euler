@@ -1,5 +1,5 @@
 def days_in_month(month, year):
-    if month in ['January', 'March', 'May', 'July', 'August', 'Ocober', 'December']:
+    if month in ['January', 'March', 'May', 'July', 'August', 'October', 'December']:
         return 31
     elif month == 'February':
         if is_leap(year):
@@ -25,8 +25,6 @@ def is_Sunday(day):
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-
 num_days = 0
 count = 0
 for year in range(1900, 2001):
@@ -35,8 +33,7 @@ for year in range(1900, 2001):
         for day in range(1, days+1):
             num_days += 1
             dow = num_days % 7
-            #print(year, month, day, dow)
-            if day == 1 and dow == 0:
+            if day == 1 and dow == 0 and year >= 1901:
                 count += 1
-                print(year, month, day, dow)
-print(count)
+
+print("Count: {}".format(count))
