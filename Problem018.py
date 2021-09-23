@@ -8,7 +8,7 @@ for line in f:
     triangle.append(row)
 row_index = 0
 for row in triangle:
-    if row_index > 0: 
+    if row_index > 0:
         item_index = 0
         for item in row:
             #print("Row: {}\tItem: {}".format(row_index, item_index))
@@ -17,7 +17,8 @@ for row in triangle:
             elif item_index == len(row)-1:
                 triangle[row_index][len(row)-1] = triangle[row_index - 1][len(triangle[row_index -
                 1])-1] + item
+            else:
+                triangle[row_index][item_index] = triangle[row_index - 1][item_index-1] + triangle[row_index - 1][item_index]+ item
             item_index += 1
     row_index += 1
-    print(row)
-
+    print(max(row))
