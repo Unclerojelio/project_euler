@@ -7,6 +7,7 @@ for line in f:
         row.append(int(item))
     triangle.append(row)
 row_index = 0
+answer = 0
 for row in triangle:
     if row_index > 0:
         item_index = 0
@@ -18,7 +19,8 @@ for row in triangle:
                 triangle[row_index][len(row)-1] = triangle[row_index - 1][len(triangle[row_index -
                 1])-1] + item
             else:
-                triangle[row_index][item_index] = triangle[row_index - 1][item_index-1] + triangle[row_index - 1][item_index]+ item
+                triangle[row_index][item_index] = max(triangle[row_index - 1][item_index-1],triangle[row_index - 1][item_index]) + item
             item_index += 1
     row_index += 1
-    print(max(row))
+    answer = max(row)
+print(answer)
