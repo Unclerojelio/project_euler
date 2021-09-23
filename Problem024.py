@@ -1,18 +1,12 @@
-import random
-def permutations(items):
-    while True:
-        random.shuffle(items)
-        yield items
+from itertools import permutations
 
-perms = []
-for i, permutation in enumerate(permutations(list('0123456789'))):
-    s = ''
-    for item in permutation:
-        s += item
-    perms.append(s)
-    if i == 1000000:
-        break
-    #print(perms)
+perms = permutations([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
-perms.sort()
-print(perms[999999])
+count = 0
+for perm in perms:
+    items = ""
+    for item in perm:
+        items += str(item)
+    count += 1
+    if count == 1000000:
+        print(items)
