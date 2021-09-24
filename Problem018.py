@@ -1,4 +1,5 @@
-f = open("Problem018.txt", "r")
+# This solution also works for #67
+f = open("p067_triangle.txt", "r")
 triangle = []
 for line in f:
     line = line.split()
